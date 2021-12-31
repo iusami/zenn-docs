@@ -543,6 +543,11 @@ print("事後オッズ比による結果:",odds)
 pre_odds = (1- beta_pre.cdf(q))/beta_pre.cdf(q)
 print("ベイズファクターでの比較:",np.log10(odds/pre_odds))
 
+#SDDRの計算
+#30%かどうか
+sddr = np.log10(scipy.stats.beta.pdf(0.3, alpha1, beta1)/scipy.stats.beta.pdf(0.3, post_params[2][0], post_params[2][1]))
+print("SDDR:",sddr)
+
 #確率変数の予測
 a_ast, b_ast = post_params[2]
 print("予測した確率変数:",a_ast/(a_ast+b_ast))
