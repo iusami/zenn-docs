@@ -65,10 +65,10 @@ key = PRNGKey(seed=1234)
 #一様分布とベータ分布からのサンプリング
 uni = Uniform()
 beta = Beta(concentration0=4, concentration1=6)
-uniform_sample = uni.sample(key, sample_shape=(10000,1))
-beta_sample = beta.sample(key, sample_shape=(10000,1))
-uniform_df = pd.DataFrame({"value":uniform_sample.reshape(-1), "kind":"uniform"})
-beta_df = pd.DataFrame({"value":(beta_sample).reshape(-1), "kind":"beta"})
+uniform_sample = uni.sample(key, sample_shape=(10000,))
+beta_sample = beta.sample(key, sample_shape=(10000,))
+uniform_df = pd.DataFrame({"value":uniform_sample, "kind":"uniform"})
+beta_df = pd.DataFrame({"value":(beta_sample), "kind":"beta"})
 sample_df = pd.concat([uniform_df, beta_df], axis=0).reset_index(drop=True)
 
 #seabornで可視化
@@ -180,7 +180,7 @@ from numpyro.distributions import BernoulliProbs
 bern = BernoulliProbs(0.25)
 #データの準備
 n = [10,50,250]
-bern_sample = [bern.sample(key, sample_shape=(i,1)) for i in n]
+bern_sample = [bern.sample(key, sample_shape=(i,)) for i in n]
 
 #事後分布の計算関数の準備
 def beta_posterior_parameter(alpha, beta, sample):
@@ -199,14 +199,14 @@ beta_posterior_samples = []
 for ct, params in enumerate(post_params):
   alpha_curr, beta_curr = params
   beta_post = Beta(alpha_curr, beta_curr)
-  sample_df_tmp = pd.DataFrame({"value":np.array(beta_post.sample(key, sample_shape=(10000,1)).reshape(-1)), "kind":"params{}".format(str(ct))})
+  sample_df_tmp = pd.DataFrame({"value":np.array(beta_post.sample(key, sample_shape=(10000,))), "kind":"params{}".format(str(ct))})
   beta_posterior_samples.append(sample_df_tmp)
 beta_posterior_samples_df = pd.concat(beta_posterior_samples).reset_index(drop=True)
 
 #事前分布のサンプル
 beta_pre = Beta(alpha0, beta0)
-beta_pre_sample = np.array(beta_pre.sample(key, sample_shape=(10000,1))).reshape(-1)
-beta_pre_sample_df = pd.DataFrame({"value":beta_pre_sample,"kind":"pre"})
+beta_pre_sample = np.array(beta_pre.sample(key, sample_shape=(10000,)))
+beta_pre_sample_df = pd.DataFrame({"value":beta_pre_sample,"kind":"prior"})
 
 concat_df = pd.concat([beta_posterior_samples_df, beta_pre_sample_df]).reset_index(drop=True)
 
@@ -270,6 +270,7 @@ $$
 ここでnumpyroを使って点推定と区間推定の例を挙げる。numpyroでの推定結果の表示は簡単で、`numpyro.diagnostics.summary`関数にサンプルを引数として与えるのみで良い。以下にコードを示す。
 
 ```python
+from numpyro.diagnostics import summary
 beta_hpd = Beta(6,4)
 beta_hpd_sample = beta_hpd.sample(key, sample_shape=(10000,1))
 summary_res = summary(beta_hpd_sample,group_by_chain=False)
