@@ -272,9 +272,10 @@ $$
 ```python
 from numpyro.diagnostics import summary
 beta_hpd = Beta(6,4)
-beta_hpd_sample = beta_hpd.sample(key, sample_shape=(10000,1))
+beta_hpd_sample = beta_hpd.sample(key, sample_shape=(10000,))
 summary_res = summary(beta_hpd_sample,group_by_chain=False)
 summary_df = pd.DataFrame(summary_res)
+summary_df.columns=["値"]
 ```
 
 これを実行すると、以下のようなデータフレームを得られる。
