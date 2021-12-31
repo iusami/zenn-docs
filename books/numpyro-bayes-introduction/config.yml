@@ -1,9 +1,14 @@
 title: "numpyroで「Pythonによるベイズ統計学入門」を実装する"
-summary: "「Pythonによるベイズ統計学入門」(https://www.asakura.co.jp/detail.php?book_code=12898)を使ってベイズ統計学を勉強する個人用ノート。
-実行したコードはこちら
-https://github.com/iusami/bayes_ml"
+summary: |-
+  「Pythonによるベイズ統計学入門」(https://www.asakura.co.jp/detail.php?book_code=12898)を使ってベイズ統計学を勉強する個人用ノート。
+  実行したコードはこちら
+  https://github.com/iusami/bayes_ml
 topics: ["bayes", "python", "numpyro"] # トピック（5つまで）
-published: false # falseだと下書き
+published: true # falseだと下書き
 price: 0 # 有料の場合200〜5000
 chapters:
   - chapter2 # チャプター2
+
+# 「Pythonによるベイズ統計学入門」(https://www.asakura.co.jp/detail.php?book_code=12898)を使ってベイズ統計学を勉強する個人用ノート。
+# 実行したコードはこちら
+# https://github.com/iusami/bayes_ml
