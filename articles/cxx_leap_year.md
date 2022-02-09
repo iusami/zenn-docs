@@ -1,5 +1,5 @@
 ---
-title: "Leap (exercism)"
+title: "Leap (by exercism) ~C++リハビリ~"
 emoji: "🔥"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["cpp"]
