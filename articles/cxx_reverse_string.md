@@ -3,7 +3,7 @@ title: "Reverse string(by Exercism) ~C++リハビリ~"
 emoji: "👻"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["cpp"]
-published: false
+published: true
 ---
 
 # 概要
