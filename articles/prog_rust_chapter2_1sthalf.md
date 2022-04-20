@@ -3,7 +3,7 @@ title: "python使用者が読むプログラミングRust 第2章 前半"
 emoji: "🐡"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Rust", "Python"]
-published: false
+published: true
 ---
 # 概要
 Rustを勉強したく[プログラミングRust](https://www.oreilly.co.jp/books/9784873119786/)を買ったので、コードを写経しつつ、自分が慣れているpythonでの実行結果と比較しつつ理解していく。
