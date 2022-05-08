@@ -12,7 +12,7 @@ Rustを勉強したく[プログラミングRust](https://www.oreilly.co.jp/book
 [コードはここ](https://github.com/iusami/programming_rust)
 
 # Webページ公開
-Rustのパッケージはcrateと呼ばれ、その内のW一つにWebフレームワークのactix-webがある、これを用いて簡単なWebサーバーを作る。また、途中シリアライズのためにシリアライズ用のserdeも利用する。
+Rustのパッケージはcrateと呼ばれ、その内の一つにWebフレームワークのactix-webがある、これを用いて簡単なWebサーバーを作る。また、途中シリアライズのためにシリアライズ用のserdeも利用する。
 
 まず、Cargo.tomlを以下のように編集して、actix-webやserdeを使えるようにする。
 
